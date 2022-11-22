@@ -5,70 +5,68 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<style type="text/css">
-		body{background: lightblue;}
+		body{background: darkblue;}
 
-		body{font-weight: 900;
-			font-size: 20pt;
-			font-family: helvetica,sans-serif;
-			color: greenyellow;
-			margin left: 100px;
+		body{font-weight: 50;
+			font-size: 10pt;
+			font-family: sans-serif;
+			color: gray;
+			margin left: 5px;
 		}
 
-		h1{font-family: Serif;
-			color: orchid;
-			font-size: 35}
 
-		.bla{background: black;}
+		.pur{background: purple;}
 
-		#r{background: darkred;}
+		#gr{background: green;}
+
+		#yel{background: yellow;}
 
 		span{
 
-			color: purple;
-			border: 3px indianred;
-			font-size: 20pt;
-			font-family:cursive ;
+			color: whitesmoke;
+			border: 3px gray;
+			font-size: 15pt;
 		}
 		.extra span{
 			color:inherit;
 		}
-		li {text-decoration: bold;}
+		li {text-decoration: line-through;}
 		li em{text-decoration: underline;}
-		h2,em}{font-weight: 800;}
-
-
+		h2,em}{font-weight: bold;}
 
 	</style>
 		
 </head>
 <body>
 	<p><label>Color:
-	<input type="color" autofocus /><div>(Hexadecimal such as <span>#ADD8E6)</span></div>
+	<input type="color" autofocus />(Hexadecimal such as #ADD8E6)
     </label></p>
-    <p><label><h1 id="r">Date:</h1>
-    	<input type="Date" name="Date"><div class="extra" style="color: black;">(yyyy-mm-<span>dd</span>)</div>
+    <p><label><h1 id="gr">Date:</h1>
+    	<input type="Date" name="Date"><div>(<span>yyyy</span>-mm-dd)</div>
     </label></p>
-    <p><label><h1 class="bla">Email:</h1>
-    	<input type="text" name="Email"><div style="extra">(name@<span>domain</span>.com)</div>
+    <p><label><h1 class="pur">Email:</h1>
+    	<input type="text" name="Email"><h1 class="pur">(name@domain.<span>com</span>)</div>
     </label></p>
-    <p><label><h1 class="bla">Number:</h1>
-    <input type="number" name="quantity" min="0" max="7" value="4">(Enter a numb11111117)
+    <p><label>Number:
+    <input type="number" name="quantity" min="0" max="7" value="4"><div style="extra">(Enter a <span>number</span> between 0 and 7)</div>
     </label></p>
-    <p><label>Range: 0
+    <p><label><h1 class="pur">Range: 0</h1>
     	<input type="range" name="Range" min="0" max="20">20
     </label></p>
-    <p><label>Search:
+    <p><label><em>Search</em>:
     	<input type="search" name="search">
     	
     </label></p>
     <p><label>Time:
-    	<input type="time" name="Time">(hh:mm)
+    	<input type="time" name="Time"><li><em>(hh:mm)</li></em>
     	
     </label></p>
     <input type="submit" name="Submit">
-    <input type="reset" name="clear">
-    <p><a href = "111303096%20lab2.html" >
-    	file:///C:/Users/User/Desktop/111303096%20lab2.html</p>
+    <p><input type="reset" name="clear"></p>
+
+    <h1 id=yel>Thank you for submit!</h1>
+    <img src="鯊魚.jpg">
+
 
 </body>
 </html>
