@@ -16,7 +16,7 @@ nav ul{display: none;
        top: 5;
        left: 5;
        width: 5;
-       position: fixed;}
+       position: relative;}
 nav:hover ul{display: block;}
 nav ul li{border-top: 5px solid royalblue;
           background-color: lightgray;
