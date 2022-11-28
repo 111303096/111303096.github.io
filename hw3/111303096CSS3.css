@@ -1,0 +1,29 @@
+body{font-family: arial, sans-serif;
+	font-size: 20pt;
+     padding: 5;
+     color: yellow;
+     background-color: royalblue;}
+nav{ font-weight:bold;
+     color:orangered;
+     border:5px solid royalblue;
+     text-align:center;
+     width: 15em;
+     background-color:lightblue; }
+nav ul{display: none;
+       list-style: none;
+       margin: 10;
+       padding: 10;
+       top: 5;
+       left: 5;
+       width: 5;
+       position: fixed;}
+nav:hover ul{display: block;}
+nav ul li{border-top: 5px solid royalblue;
+          background-color: lightgray;
+          width: 15em;
+          color: black;}
+nav ul li:hover{background-color: powderblue;}
+a{text-decoration: none;}
+
+@media screen and (min-width:480px){
+  body{background-color: lightgreen;}
