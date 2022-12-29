@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>找字母位置</title>
+</head>
+<body>
+
+<h2>找字母位置</h2>
+
+<p>請輸入一段英文</p>
+
+<input type="text" id="sentence" size="50">
+
+<p>請輸入字母</p>
+
+<input type="text" id="char" size="10">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var str = document.getElementById("sentence").value;
+  var char = document.getElementById("char").value;
+ 
+  var n = str.length;
+  var positions = [];
+  
+  for(var i=0;i<n;i++){
+    if(str[i]==char){
+      positions.push(i);
+    }
+  }
+  
+  document.getElementById("demo").innerHTML = "字母'" + char + "'出現在：" + positions;
+}
+</script>
+
+</body>
+</html>
