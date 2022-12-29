@@ -1,124 +1,124 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-</head>
-<body>
-	<p><img id="die1" src="die1.png" alt="die 1 image">
-		<img id="die2" src="die1.png" alt="die 2 image">
-		<img id="die3" src="die1.png" alt="die 3 image">
-		<img id="die4" src="die1.png" alt="die 4 image">
-		<img id="die5" src="die1.png" alt="die 5 image">
-		<img id="die6" src="die1.png" alt="die 6 image"></p>
-		<p><img id="die7" src="die1.png" alt="die 7 image">
-		<img id="die8" src="die1.png" alt="die 8 image">
-		<img id="die9" src="die1.png" alt="die 9 image">
-		<img id="die10" src="die1.png" alt="die 10 image">
-		<img id="die11" src="die1.png" alt="die 11 image">
-		<img id="die12" src="die1.png" alt="die 12 image"></p>
+  <head>
+    <title>Dice Rolling</title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
 
-	<form action="#">
-		<input id = "rollButton" type="button" value="Roll dice"></form>
-		<div id="frequencyTableDiv"></div>
-		
-	<script type="text/javascript">
-		function start(){
-			var button=document.getElementById("rollButton");
-			button.addEventListener("click",rollDice,false);
-			die1image=document.getElementById("die1")
-			die2image=document.getElementById("die2")
-			die3image=document.getElementById("die3")
-			die4image=document.getElementById("die4")
-			die5image=document.getElementById("die5")
-			die6image=document.getElementById("die6")
-			die7image=document.getElementById("die7")
-			die8image=document.getElementById("die8")
-			die9image=document.getElementById("die9")
-			die10image=document.getElementById("die10")
-			die11image=document.getElementById("die11")
-			die12image=document.getElementById("die12")
+      th, td {
+        padding: 5px;
+      }
+    </style>
+  </head>
 
-		}
-		function rollDice(){
-         setImage(die1image);
-         setImage(die2image);
-         setImage(die3image);
-         setImage(die4image);
-         setImage(die5image);
-         setImage(die6image);
-         setImage(die7image);
-         setImage(die8image);
-         setImage(die9image);
-         setImage(die10image);
-         setImage(die11image);
-         setImage(die12image);
-         }
-		function setImage(dieNumber,face)
-		{
-         var face;
-         i=2
+  <body>
+    <h1>Roll Dice And Accumulated Statistics</h1>
+    <button type="button" onclick="rollDice()">Roll 12 dices</button>
+    <div id="dices">
+    </div>
 
-          {
-         	face=Math.floor(1+Math.random()*6);
-         	setImage(i,face);
-         	tallyRolls(face);
-         	++totalDice;
-         	
-         }
-         
-         
+    <table id="results">
+      <tr>
+        <th>Number</th>
+        <th>Frequency</th>
+        <th>Percentage</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td id="one">0</td>
+        <td id="onePercent">0.00</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td id="two">0</td>
+        <td id="twoPercent">0.00</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td id="three">0</td>
+        <td id="threePercent">0.00</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td id="four">0</td>
+        <td id="fourPercent">0.00</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td id="five">0</td>
+        <td id="fivePercent">0.00</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td id="six">0</td>
+        <td id="sixPercent">0.00</td>
+      </tr>
+    </table>
+  </body>
 
-          updateFrequencyTable();}
+  <script>
+    let one = 0;
+    let two = 0;
+    let three = 0;
+    let four = 0;
+    let five = 0;
+    let six = 0;
+    let ct = 0;
+    function rollDice() {
+      
+      let diceContainer = document.getElementById('dices');
+      diceContainer.innerHTML = '';
+ 
+      let totalRolls = 12;
+      for (let i = 0; i < totalRolls; i++) {
+        let randomNumber = Math.floor(Math.random() * 6) + 1;
+        let diceImage = document.createElement('img');
+        diceImage.src = `die${randomNumber}.png`;
+        diceContainer.appendChild(diceImage);
 
-          function tallyRolls(face){
-          	switch(face){
-                case 1:
-                	++frequency1;
-                	break;
-                case 2:
-                	++frequency2;
-                	break;
-                case 3:
-                	++frequency3;
-                	break;
-                case 4:
-                	++frequency4;
-                	break;
-                case 5:
-                	++frequency5;
-                	break;
-                case 6:
-                	++frequency6;
-                	break;
-                
-
-
-          	}
-
-          }
-
-        function updateFrequencyTable(){
-            var tableDiv= document.getElementById("frequencyTableDiv")
-            tableDiv.innerHTML="<table>"+
-                               "<caption>Die Rolling Frequencies</caption>"+"<thead><th>Face</th><th>Frequency</th>"+"<th>Percent</th><thead>"+
-                               "<tbody><tr> <td>1</td> <td>"+frequency1+"</td> <td>"+Math.floor((frequency1/totalDice)*100)+"%"+"</td> </tr>"+
-                               "<tr> <td>2</td> <td>"+frequency2+"</td> <td>"+Math.floor((frequency2/totalDice)*100)+"%"+"</td> </tr>"+
-                               "<tr> <td>3</td> <td>"+frequency3+"</td> <td>"+Math.floor((frequency3/totalDice)*100)+"%"+"</td> </tr>"+
-                               "<tr> <td>4</td> <td>"+frequency4+"</td> <td>"+Math.floor((frequency4/totalDice)*100)+"%"+"</td> </tr>"+
-                               "<tr> <td>5</td> <td>"+frequency5+"</td> <td>"+Math.floor((frequency5/totalDice)*100)+"%"+"</td> </tr>"+
-                               "<tr> <td>6</td> <td>"+frequency6+"</td> <td>"+Math.floor((frequency6/totalDice)*100)+"%"+"</td> </tr>"
-                            "</tbody></table>";
-               
-
+        switch (randomNumber) {
+          case 1:
+            one++;
+            break;
+          case 2:
+            two++;
+            break;
+          case 3:
+            three++;
+            break;
+          case 4:
+            four++;
+            break;
+          case 5:
+            five++;
+            break;
+          case 6:
+            six++;
+            break;
         }
-		
+      }
+      ct += 1;
+      let onePercent = (100*one /(totalRolls * ct)).toFixed(2) ;
+      let twoPercent = (100*two / (totalRolls * ct)).toFixed(2);
+      let threePercent = (100*three / (totalRolls * ct)).toFixed(2);
+      let fourPercent = (100*four /(totalRolls * ct)).toFixed(2);
+      let fivePercent = (100*five / (totalRolls * ct)).toFixed(2);
+      let sixPercent = (100*six / (totalRolls * ct)).toFixed(2);
 
-               window.addEventListener("load",start,false);
-
-	</script>
-
-
-</body>
+      document.getElementById('one').innerHTML = one;
+      document.getElementById('onePercent').innerHTML = onePercent;
+      document.getElementById('two').innerHTML = two;
+      document.getElementById('twoPercent').innerHTML = twoPercent;
+      document.getElementById('three').innerHTML = three;
+      document.getElementById('threePercent').innerHTML = threePercent;
+      document.getElementById('four').innerHTML = four;
+      document.getElementById('fourPercent').innerHTML = fourPercent;
+      document.getElementById('five').innerHTML = five;
+      document.getElementById('fivePercent').innerHTML = fivePercent;
+      document.getElementById('six').innerHTML = six;
+      document.getElementById('sixPercent').innerHTML = sixPercent;
+    }
+  </script>
 </html>
